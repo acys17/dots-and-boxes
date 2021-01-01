@@ -41,7 +41,6 @@ body .game-container {
   display: -ms-flexbox;
   display: flex;
   height: 50vh;
-  width: inherit;
   margin: 5vw;
 }
 
@@ -159,5 +158,50 @@ body .game-container #dot-grid .showSquareOne {
 body .game-container #dot-grid .showSquareTwo {
   background-color: rgba(176, 76, 76, 0.5);
   visibility: visible;
+}
+
+@media only screen and (max-width: 425px) {
+  body {
+    width: 100vw;
+    height: 100%;
+  }
+  body h1 {
+    font-size: 2.7rem;
+  }
+  body #score {
+    position: absolute;
+    top: 85vh;
+  }
+  body .game-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100vw;
+    height: inherit;
+  }
+  body .game-container .legend {
+    width: 80vw;
+    margin: 0 auto;
+  }
+  body .game-container #dot-grid {
+    width: 100vw;
+    padding-top: 15vh;
+    margin: 10vh 10vw;
+  }
+  body .game-container #dot-grid .dot {
+    width: 5vw;
+    height: 5vw;
+  }
+  body .game-container #dot-grid .line-horizontal {
+    width: 20vw;
+  }
+  body .game-container #dot-grid .line-vertical {
+    height: 20vw;
+  }
+  body .game-container #dot-grid .square {
+    width: 20vw;
+    height: 20vw;
+  }
 }
 /*# sourceMappingURL=main.css.map */

@@ -37,7 +37,6 @@ body {
     .game-container {
         display: flex;
         height: 50vh;
-        width: inherit;
         margin: 5vw;
 
         .legend {
@@ -146,6 +145,58 @@ body {
             .showSquareTwo {
                 background-color: rgba($player-two-color, 0.5);
                 visibility: visible;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    body {
+        width: 100vw;
+        height: 100%;
+
+        h1 {
+            font-size: 2.7rem;
+        }
+
+        #score {
+            position: absolute;
+            top: 85vh;
+        }
+
+        .game-container {
+            flex-direction: column;
+            width: 100vw;
+            height: inherit;
+            // overflow: hidden;
+
+            .legend {
+                width: 80vw;
+                margin: 0 auto;
+            }
+
+            #dot-grid {
+                width: 100vw;
+                padding-top: 15vh;
+                margin: 10vh 10vw;
+
+                .dot {
+                    width: 5vw;
+                    height: 5vw;
+                }
+
+                .line-horizontal {
+                    width: 20vw;
+                }
+
+                .line-vertical {
+                    height: 20vw;
+                }
+
+                .square {
+                    width: 20vw;
+                    height: 20vw;
+                }
             }
         }
     }
