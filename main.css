@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Syne Mono', monospace;
+}
+
+body {
+  background-color: #040404;
+  width: 100vw;
+  height: 100vh;
+}
+
+body h1 {
+  color: whitesmoke;
+  height: 12vh;
+  width: 100vw;
+  font-size: 60px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+body #score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+body #score p {
+  padding: 0 1vw;
+}
+
+body .game-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50vh;
+  width: inherit;
+  margin: 5vw;
+}
+
+body .game-container .legend {
+  background-color: #f7f740;
+  height: 60vh;
+  width: 30vw;
+  margin-right: 5vw;
+  padding: 1vw;
+}
+
+body .game-container .legend .players {
+  border: 3px solid black;
+  list-style: none;
+}
+
+body .game-container .legend .players .playerOne {
+  color: white;
+  background-color: #5b5bd0;
+  padding: 3px;
+}
+
+body .game-container .legend .players .playerTwo {
+  color: white;
+  background-color: #b04c4c;
+  padding: 3px;
+}
+
+body .game-container .legend .rules {
+  padding: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+body .game-container .legend .rules li {
+  font-size: 1rem;
+  margin-left: 15px;
+}
+
+body .game-container #dot-grid {
+  width: 50vw;
+  height: 45vh;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  color: transparent;
+  -ms-grid-columns: (min-content)[7];
+      grid-template-columns: repeat(7, -webkit-min-content);
+      grid-template-columns: repeat(7, min-content);
+  -ms-grid-rows: (min-content)[7];
+      grid-template-rows: repeat(7, -webkit-min-content);
+      grid-template-rows: repeat(7, min-content);
+}
+
+body .game-container #dot-grid .dot {
+  height: 30px;
+  width: 30px;
+  background: whitesmoke;
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  border: 2px solid #040404;
+}
+
+body .game-container #dot-grid .dot:hover {
+  border: none;
+}
+
+body .game-container #dot-grid .selected {
+  background-color: yellow;
+}
+
+body .game-container #dot-grid .line {
+  visibility: hidden;
+  background-color: white;
+  border-radius: 5px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  margin: auto;
+}
+
+body .game-container #dot-grid .line-horizontal {
+  height: 15px;
+  width: 110px;
+}
+
+body .game-container #dot-grid .line-vertical {
+  height: 110px;
+  width: 15px;
+}
+
+body .game-container #dot-grid .showPlayerOne {
+  visibility: visible;
+  background-color: #5b5bd0;
+}
+
+body .game-container #dot-grid .showPlayerTwo {
+  visibility: visible;
+  background-color: #b04c4c;
+}
+
+body .game-container #dot-grid .square {
+  border-radius: 10px;
+  visibility: hidden;
+  width: 110px;
+  height: 110px;
+}
+
+body .game-container #dot-grid .showSquareOne {
+  background-color: rgba(91, 91, 208, 0.5);
+  visibility: visible;
+}
+
+body .game-container #dot-grid .showSquareTwo {
+  background-color: rgba(176, 76, 76, 0.5);
+  visibility: visible;
+}
+/*# sourceMappingURL=main.css.map */

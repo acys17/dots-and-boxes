@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
+    <title>Sandbox</title>
+</head>
+<body>
+    <h1>Dots and Boxes</h1>
+    <section id="score">
+        <p>SCORE:</p>
+        <p>Player 1: 0</p>
+        <p>Player 2: 0</p>
+    </section>
+    <section class="game-container">
+        <section class="legend">
+            <ul class="players">
+                <li class="playerOne">*Player 1*</li>
+                <li class="playerTwo">*Player 2*</li>
+            </ul>
+            <ul class="rules">Rules:
+                <li>Players take turns drawing a line between 2 dots</li>
+                <li>The aim of the game is to close more boxes than your opponent</li>
+                <li>If you close a box, you get another turn</li>
+                <li>Lines may only be drawn between 2 adjacent dots</li>
+                <li>Lines must be drawn horizontally or vertically. No diagonal lines.</li>
+            </ul>
+        </section>
+        <section id="dot-grid">
+            <div id="a1" class="dot">a1</div>
+            <div id="a1-b1" class="line line-horizontal a1b1 b1a1">a1-b1</div>
+            <div id="b1" class="dot">b1</div>
+            <div id="b1-c1" class="line line-horizontal b1c1 c1b1">b1-c1</div>
+            <div id="c1" class="dot">c1</div>
+            <div id="c1-d1" class="line line-horizontal c1d1 d1c1">c1-d1</div>
+            <div id="d1" class="dot">d1</div>
+            
+            <div id="a1-a2" class="line line-vertical a1a2 a2a1">a1-a2</div>
+            <div id="a1-a2-b1-b2" class="square a1-a2-b1-b2"></div>
+            <div id="b1-b2" class="line line-vertical b1b2 b2b1">b1-b2</div>
+            <div id="b1-b2-c1-c2" class="square b1-b2-c1-c2"></div>
+            <div id="c1-c2" class="line line-vertical c1c2 c2c1">c1-c2</div>
+            <div id="c1-c2-d1-d2" class="square c1-c2-d1-d2"></div>
+            <div id="d1-d2" class="line line-vertical d1d2 d2d1">d1-d2</div>
+            
+            <div id="a2" class="dot">a2</div>
+            <div id="a2-b2" class="line line-horizontal a2b2 b2a2">a2-b2</div>
+            <div id="b2" class="dot">b2</div>
+            <div id="b2-c2" class="line line-horizontal b2c2 c2b2">b2-c2</div>
+            <div id="c2" class="dot">c2</div>
+            <div id="c2-d2" class="line line-horizontal c2d2 d2c2">c2-d2</div>
+            <div id="d2" class="dot">d2</div>
+
+            <div id="a2-a3" class="line line-vertical a2a3 a3a2">a2-a3</div>
+            <div id="a2-a3-b2-b3" class="square"></div>
+            <div id="b2-b3" class="line line-vertical b2b3 b3b2">b2-b3</div>
+            <div id="b2-b3-c2-c3" class="square"></div>
+            <div id="c2-c3" class="line line-vertical c2c3 c3c2">c2-c3</div>
+            <div id="c2-c3-d2-d3" class="square"></div>
+            <div id="d2-d3" class="line line-vertical d2d3 d3d2">d2-d3</div>
+            
+            <div id="a3" class="dot">a3</div>
+            <div id="a3-b3" class="line line-horizontal a3b3 b3a3">a3-b3</div>
+            <div id="b3" class="dot">b3</div>
+            <div id="b3-c3" class="line line-horizontal b3c3 c3b3">b3-c3</div>
+            <div id="c3" class="dot">c3</div>
+            <div id="c3-d3" class="line line-horizontal c3d3 d3c3">c3-d3</div>
+            <div id="d3" class="dot">d3</div>
+            
+            <div id="a3-a4" class="line line-vertical a3a4 a4a3">a3-a4</div>
+            <div id="a3-a4-b3-b4" class="square"></div>
+            <div id="b3-b4" class="line line-vertical b3b4 b4b3">b3-b4</div>
+            <div id="b3-b4-c3-c4" class="square"></div>
+            <div id="c3-c4" class="line line-vertical c3c4 c4c3">c3-c4</div>
+            <div id="c3-c4-d3-d4" class="square"></div>
+            <div id="d3-d4" class="line line-vertical d3d4 d4d3">d3-d4</div>
+            
+            <div id="a4" class="dot">a4</div>
+            <div id="a4-b4" class="line line-horizontal a4b4 b4a4">a4-b4</div>
+            <div id="b4" class="dot">b4</div>
+            <div id="b4-c4" class="line line-horizontal b4c4 c4b4">b4-c4</div>
+            <div id="c4" class="dot">c4</div>
+            <div id="c4-d4" class="line line-horizontal c4d4 d4c4">c4-d4</div>
+            <div id="d4" class="dot">d4</div>
+        </section>
+    </section>
+
+    <script src="./main.js"></script>
+</body>
+</html>
