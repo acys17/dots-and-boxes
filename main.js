@@ -5,6 +5,7 @@ const squares = Array.from(document.querySelectorAll(".square"));
 const squaresId = squares.map(square => square.id);
 const score = document.getElementById("score");
 const winnerCardHTML = document.getElementById("winnerCard");
+const newGameButton = document.getElementById("newGame");
 
 let squareToShow;
 let squareDotsArray;
@@ -153,3 +154,7 @@ dots.forEach(dot => {
         }
     });
 });
+
+newGameButton.addEventListener("click", () => {
+    location.reload()
+})

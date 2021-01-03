@@ -14,6 +14,14 @@ body {
     width: 100vw;
     height: 100vh;
 
+    #newGame {
+        height: 5vh;
+        width: 10vw;
+        margin: 5vh 5vw;
+        position: absolute;
+        background-color: white;
+    }
+
     h1 {
         color: whitesmoke;
         height: 12vh;
