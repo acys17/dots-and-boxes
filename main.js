@@ -4,8 +4,23 @@ const visibleLines = document.getElementsByClassName("line-visible");
 const squares = Array.from(document.querySelectorAll(".square"));
 const squaresId = squares.map(square => square.id);
 const score = document.getElementById("score");
+const winnerCardHTML = document.getElementById("winnerCard");
+
+let squareToShow;
+let squareDotsArray;
+let topLeft;
+let bottomLeft;
+let topRight;
+let bottomRight;
+let isTopLineVisible;
+let isLeftLineVisible;
+let isRightLineVisible;
+let isBottomLineVisible;
+let visibleLineIds;
 
 let playerOneTurn = true;
+let playerOneSecondTurn = false;
+let playerTwoSecondTurn = false;
 
 let firstDot = "";
 let secondDot = "";
@@ -14,14 +29,34 @@ let playerOneScore = 0;
 let playerTwoScore = 0;
 
 const playerTurn = ((lineToShow) => {
-    if(playerOneTurn === false) {
-        lineToShow.classList.add("showPlayerTwo", "line-visible");
-        playerOneTurn = !playerOneTurn;
-    } else {
+    if(playerOneTurn || playerOneSecondTurn) {
         lineToShow.classList.add("showPlayerOne", "line-visible");
+        playerOneTurn = !playerOneTurn;
+    } else if(!playerOneTurn || playerTwoSecondTurn) {
+        lineToShow.classList.add("showPlayerTwo", "line-visible");
         playerOneTurn = !playerOneTurn;
     }
 });
+
+const showSquare = (() => {
+    squaresId.forEach(square => { 
+        squareDotsArray = square.split("-");
+        topLeft = squareDotsArray[0];
+        bottomLeft = squareDotsArray[1];
+        topRight = squareDotsArray[2];
+        bottomRight = squareDotsArray[3];
+        
+        isTopLineVisible = `${topLeft}-${topRight}`
+        isLeftLineVisible = `${topLeft}-${bottomLeft}`
+        isRightLineVisible = `${topRight}-${bottomRight}`
+        isBottomLineVisible = `${bottomLeft}-${bottomRight}`
+        
+        squareToShow = document.getElementById(square);
+        
+        isPlayerOneSquare();
+        
+    })
+})
 
 const scoreDisplay = () => {
     score.innerHTML = `
@@ -29,6 +64,45 @@ const scoreDisplay = () => {
         <p>Player 1: ${playerOneScore}</p>
         <p>Player 2: ${playerTwoScore}</p>
     `
+}
+
+const winner = () => {
+    let winner;
+    console.log(playerOneScore);
+    console.log(playerTwoScore);
+    if(playerOneScore > playerTwoScore) {
+        winner = "Player One"; 
+    } else {
+        winner = "Player Two";
+    }
+    winnerCardHTML.innerHTML = `
+    <p id="congratulations">Congratulations ${winner} wins!!</p>
+    <p id="finalScore">Final score: ${playerOneScore} - ${playerTwoScore}</p> 
+    `
+    winnerCardHTML.style.visibility = "visible";
+}
+
+const isPlayerOneSquare = () => {
+    if(visibleLineIds.includes(isTopLineVisible) && visibleLineIds.includes(isLeftLineVisible) && visibleLineIds.includes(isRightLineVisible) && visibleLineIds.includes(isBottomLineVisible)) {
+        if(!((squareToShow.classList).contains("showSquareOne")) && !((squareToShow.classList).contains("showSquareTwo"))) {
+            if(!playerOneTurn) {
+                squareToShow.classList.add("showSquareOne");
+                playerOneScore ++;
+                playerOneSecondTurn = true;
+            } else if(playerOneTurn) {
+                squareToShow.classList.add("showSquareTwo");
+                playerTwoScore ++;
+                playerTwoSecondTurn = true;
+            }
+        } else {
+            playerOneSecondTurn = false;
+            playerTwoSecondTurn = false;
+        }
+    }
+    if((playerOneScore + playerTwoScore) === 9) {
+        winner();
+    }
+    scoreDisplay()
 }
 
 dots.forEach(dot => {
@@ -62,36 +136,7 @@ dots.forEach(dot => {
             }
 
             const visibleLinesArray = Array.from(visibleLines);
-            const visibleLineIds = visibleLinesArray.map(line => line.id)
-
-            const showSquare = (() => {
-                squaresId.forEach(square => { 
-                    const squareDotsArray = square.split("-");
-                    const topLeft = squareDotsArray[0];
-                    const bottomLeft = squareDotsArray[1];
-                    const topRight = squareDotsArray[2];
-                    const bottomRight = squareDotsArray[3];
-
-                    const isTopLineVisible = `${topLeft}-${topRight}`
-                    const isLeftLineVisible = `${topLeft}-${bottomLeft}`
-                    const isRightLineVisible = `${topRight}-${bottomRight}`
-                    const isBottomLineVisible = `${bottomLeft}-${bottomRight}`
-
-                        if(visibleLineIds.includes(isTopLineVisible) && visibleLineIds.includes(isLeftLineVisible) && visibleLineIds.includes(isRightLineVisible) && visibleLineIds.includes(isBottomLineVisible)) {
-                            const squareToShow = document.getElementById(square);
-                            if(!((squareToShow.classList).contains("showSquareOne"))) {
-                                if(!playerOneTurn) {
-                                    squareToShow.classList.add("showSquareOne");
-                                    playerOneScore ++;
-                                } else {
-                                    squareToShow.classList.add("showSquareTwo");
-                                    playerTwoScore ++;
-                                }
-                            }
-                            scoreDisplay()
-                        }
-                    })
-            })
+            visibleLineIds = visibleLinesArray.map(line => line.id)
             
             showSquare();
         
