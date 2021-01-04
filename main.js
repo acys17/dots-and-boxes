@@ -156,8 +156,6 @@ dots.forEach(dot => {
             event.target.classList.remove("selected");
             }
         }
-        console.log(`playerOneSecondTurn ${playerOneSecondTurn}`);
-        console.log(`playerTwoSecondTurn ${playerTwoSecondTurn}`);
     });
 });
 
