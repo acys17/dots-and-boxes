@@ -13,10 +13,10 @@ let topLeft;
 let bottomLeft;
 let topRight;
 let bottomRight;
-let isTopLineVisible;
-let isLeftLineVisible;
-let isRightLineVisible;
-let isBottomLineVisible;
+let topLine;
+let leftLine;
+let rightLine;
+let bottomLine;
 let visibleLineIds;
 
 let playerOneTurn = true;
@@ -30,10 +30,16 @@ let playerOneScore = 0;
 let playerTwoScore = 0;
 
 const playerTurn = ((lineToShow) => {
-    if(playerOneTurn || playerOneSecondTurn) {
+    if(playerOneSecondTurn) {
+        lineToShow.classList.add("showPlayerOne", "line-visible");
+        playerOneSecondTurn = false;
+    } else if (playerTwoSecondTurn) {
+        lineToShow.classList.add("showPlayerTwo", "line-visible");
+        playerTwoSecondTurn = false;
+    } else if(playerOneTurn) {
         lineToShow.classList.add("showPlayerOne", "line-visible");
         playerOneTurn = !playerOneTurn;
-    } else if(!playerOneTurn || playerTwoSecondTurn) {
+    } else if(!playerOneTurn) {
         lineToShow.classList.add("showPlayerTwo", "line-visible");
         playerOneTurn = !playerOneTurn;
     }
@@ -47,15 +53,14 @@ const showSquare = (() => {
         topRight = squareDotsArray[2];
         bottomRight = squareDotsArray[3];
         
-        isTopLineVisible = `${topLeft}-${topRight}`
-        isLeftLineVisible = `${topLeft}-${bottomLeft}`
-        isRightLineVisible = `${topRight}-${bottomRight}`
-        isBottomLineVisible = `${bottomLeft}-${bottomRight}`
+        topLine = `${topLeft}-${topRight}`
+        leftLine = `${topLeft}-${bottomLeft}`
+        rightLine = `${topRight}-${bottomRight}`
+        bottomLine = `${bottomLeft}-${bottomRight}`
         
         squareToShow = document.getElementById(square);
         
         isPlayerOneSquare();
-        
     })
 })
 
@@ -84,20 +89,18 @@ const winner = () => {
 }
 
 const isPlayerOneSquare = () => {
-    if(visibleLineIds.includes(isTopLineVisible) && visibleLineIds.includes(isLeftLineVisible) && visibleLineIds.includes(isRightLineVisible) && visibleLineIds.includes(isBottomLineVisible)) {
+    if(visibleLineIds.includes(topLine) && visibleLineIds.includes(leftLine) && visibleLineIds.includes(rightLine) && visibleLineIds.includes(bottomLine)) {
         if(!((squareToShow.classList).contains("showSquareOne")) && !((squareToShow.classList).contains("showSquareTwo"))) {
+            console.log("square");
             if(!playerOneTurn) {
+                playerOneSecondTurn = true;
                 squareToShow.classList.add("showSquareOne");
                 playerOneScore ++;
-                playerOneSecondTurn = true;
             } else if(playerOneTurn) {
+                playerTwoSecondTurn = true;
                 squareToShow.classList.add("showSquareTwo");
                 playerTwoScore ++;
-                playerTwoSecondTurn = true;
             }
-        } else {
-            playerOneSecondTurn = false;
-            playerTwoSecondTurn = false;
         }
     }
     if((playerOneScore + playerTwoScore) === 9) {
@@ -113,6 +116,7 @@ dots.forEach(dot => {
         return document.getElementById(dot).classList.remove("selected");
         })
         event.target.classList.add("selected");
+
         // assigns clicked dot to first or second
         if(firstDot === "" || firstDot === event.target.innerText) {
             firstDot = event.target.innerText; // e.g. "a1"
@@ -152,6 +156,8 @@ dots.forEach(dot => {
             event.target.classList.remove("selected");
             }
         }
+        console.log(`playerOneSecondTurn ${playerOneSecondTurn}`);
+        console.log(`playerTwoSecondTurn ${playerTwoSecondTurn}`);
     });
 });
 
