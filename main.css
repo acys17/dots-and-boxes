@@ -10,6 +10,7 @@ body {
   background-color: #040404;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 body #newGame {
@@ -23,7 +24,7 @@ body #newGame {
 body h1 {
   color: whitesmoke;
   height: 12vh;
-  width: 100vw;
+  width: inherit;
   font-size: 60px;
   text-align: center;
   margin-top: 20px;
@@ -89,7 +90,6 @@ body .game-container .legend .rules li {
 }
 
 body .game-container #dot-grid {
-  width: 50vw;
   height: 45vh;
   margin: 0 auto;
   display: -ms-grid;
@@ -193,17 +193,40 @@ body #winnerCard #finalScore {
   color: orange;
 }
 
+@media only screen and (max-width: 768px) {
+  body {
+    width: 100vw;
+  }
+  body .legend {
+    width: 20vw;
+  }
+  body #dot-grid .line-horizontal {
+    width: 90px;
+  }
+  body #dot-grid .line-vertical {
+    height: 90px;
+  }
+}
+
 @media only screen and (max-width: 425px) {
   body {
     width: 100vw;
     height: 100%;
+    overflow: scroll;
+    margin: 0 auto;
+  }
+  body #newGame {
+    top: 130vh;
+    left: 30vw;
+    width: 30vw;
   }
   body h1 {
     font-size: 2.7rem;
   }
   body #score {
     position: absolute;
-    top: 85vh;
+    top: 65vh;
+    padding: 0 5vw;
   }
   body .game-container {
     -webkit-box-orient: vertical;
@@ -212,15 +235,18 @@ body #winnerCard #finalScore {
             flex-direction: column;
     width: 100vw;
     height: inherit;
+    margin: 0;
   }
   body .game-container .legend {
     width: 80vw;
     margin: 0 auto;
+    height: 45vh;
   }
   body .game-container #dot-grid {
-    width: 100vw;
-    padding-top: 15vh;
-    margin: 10vh 10vw;
+    width: 80vw;
+    padding: 20vh 0;
+    margin: 0 auto;
+    height: 100%;
   }
   body .game-container #dot-grid .dot {
     width: 5vw;
@@ -235,6 +261,14 @@ body #winnerCard #finalScore {
   body .game-container #dot-grid .square {
     width: 20vw;
     height: 20vw;
+  }
+  body #winnerCard {
+    width: 90vw;
+    height: 60vh;
+    left: 5vw;
+    top: 70vh;
+    font-size: 1.8rem;
+    padding: 20vh 5vw;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -74,8 +74,6 @@ const scoreDisplay = () => {
 
 const winner = () => {
     let winner;
-    console.log(playerOneScore);
-    console.log(playerTwoScore);
     if(playerOneScore > playerTwoScore) {
         winner = "Player One"; 
     } else {
@@ -91,7 +89,6 @@ const winner = () => {
 const isPlayerOneSquare = () => {
     if(visibleLineIds.includes(topLine) && visibleLineIds.includes(leftLine) && visibleLineIds.includes(rightLine) && visibleLineIds.includes(bottomLine)) {
         if(!((squareToShow.classList).contains("showSquareOne")) && !((squareToShow.classList).contains("showSquareTwo"))) {
-            console.log("square");
             if(!playerOneTurn) {
                 playerOneSecondTurn = true;
                 squareToShow.classList.add("showSquareOne");
