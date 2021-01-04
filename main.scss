@@ -211,18 +211,20 @@ body {
         margin: 0 auto;
 
         #newGame {
-            top: 130vh;
+            top: 140vh;
             left: 30vw;
             width: 30vw;
         }
 
         h1 {
             font-size: 2.7rem;
+            width: 100vw;
+            height: 15vh;
         }
 
         #score {
             position: absolute;
-            top: 65vh;
+            top: 80vh;
             padding: 0 5vw;
         }
 
@@ -235,7 +237,7 @@ body {
             .legend {
                 width: 80vw;
                 margin: 0 auto;
-                height: 45vh;
+                height: 55vh;
             }
 
             #dot-grid {
@@ -267,7 +269,7 @@ body {
             width: 90vw;
             height: 60vh;
             left: 5vw;
-            top: 70vh;
+            top: 80vh;
             font-size: 1.8rem;
             padding: 20vh 5vw;
         }

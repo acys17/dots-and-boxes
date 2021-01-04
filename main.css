@@ -216,16 +216,18 @@ body #winnerCard #finalScore {
     margin: 0 auto;
   }
   body #newGame {
-    top: 130vh;
+    top: 140vh;
     left: 30vw;
     width: 30vw;
   }
   body h1 {
     font-size: 2.7rem;
+    width: 100vw;
+    height: 15vh;
   }
   body #score {
     position: absolute;
-    top: 65vh;
+    top: 80vh;
     padding: 0 5vw;
   }
   body .game-container {
@@ -240,7 +242,7 @@ body #winnerCard #finalScore {
   body .game-container .legend {
     width: 80vw;
     margin: 0 auto;
-    height: 45vh;
+    height: 55vh;
   }
   body .game-container #dot-grid {
     width: 80vw;
@@ -266,7 +268,7 @@ body #winnerCard #finalScore {
     width: 90vw;
     height: 60vh;
     left: 5vw;
-    top: 70vh;
+    top: 80vh;
     font-size: 1.8rem;
     padding: 20vh 5vw;
   }
